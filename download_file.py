@@ -1,6 +1,8 @@
 import io
 import json
 import os
+import sys
+from pathlib import Path
 
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
@@ -18,15 +20,27 @@ def _find_file_id(file_name: str) -> str:
     search_result = drive_service.files().list(q=query,
                                                pageSize=10, fields="nextPageToken, files(id, name)").execute()
     file_list = search_result.get('files', [])
+    if len(file_list) == 0:
+        print("Can't find file: %s" % file_name)
+        sys.exit(1)
     file_id = file_list[0].get('id')
     print("Found file with ID: %s" % file_id)
     return file_id
 
 
+def _get_output_file_path(file_name: str) -> Path:
+    chosen_path = os.getenv("DOWNLOAD_TO")
+    download_directory = Path(chosen_path)
+    download_directory.mkdir(parents=True, exist_ok=True)
+    output_file_path = download_directory / file_name
+    return output_file_path
+
+
 def _download_file(file_id: str, file_name: str) -> None:
     request = drive_service.files().get_media(fileId=file_id)
-    output_file = io.FileIO(file_name, 'wb')
-    downloader = MediaIoBaseDownload(output_file, request)
+    output_path = _get_output_file_path(file_name)
+    output_file_path = io.FileIO(output_path, 'w+b')
+    downloader = MediaIoBaseDownload(output_file_path, request)
     done = False
     while done is False:
         status, done = downloader.next_chunk()

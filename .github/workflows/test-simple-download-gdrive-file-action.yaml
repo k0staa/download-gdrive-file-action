@@ -8,9 +8,14 @@ jobs:
   Test-Action:
     runs-on: ubuntu-latest
     steps:
-      - name: Download file bmw.jpg from Google Drive
+      - name: Download file bmw.jpg from Google Drive to default folder (./)
         uses: k0staa/download-gdrive-file-action@main
         with:
           service-account-key-json: ${{ secrets.SERVICE_ACCOUNT_AUTH_JSON }}
           download-file-name: bmw.jpg
-          download-to: ./
+      - name: Download file bmw.jpg from Google Drive to ./out/ folder
+        uses: k0staa/download-gdrive-file-action@main
+        with:
+          service-account-key-json: ${{ secrets.SERVICE_ACCOUNT_AUTH_JSON }}
+          download-file-name: bmw.jpg
+          download-to: ./out/

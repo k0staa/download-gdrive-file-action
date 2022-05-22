@@ -5,15 +5,23 @@ This action download file from Google Drive. It's simple and secure.
 For instructions on how to set up service account required to download file,
 see [How to create a project, service account and generate authentication key section](#How-to-create-a-project,-service-account-and-generate-authentication-key)
 
-## Example
+## Examples
 
 ```yaml
-- name: Download file X from Google Drive
+- name: Download file X from Google Drive to default (./) directory
   uses: k0staa/download-gdrive-file-action@v1
   with:
     service-account-auth-json: ${{ secrets.SERVICE_ACCOUNT_AUTH_JSON }}
     download-file-name: bmw.jpg
-    download-to: ./
+```
+
+```yaml
+- name: Download file X from Google Drive to ./out/ directory
+  uses: k0staa/download-gdrive-file-action@v1
+  with:
+    service-account-auth-json: ${{ secrets.SERVICE_ACCOUNT_AUTH_JSON }}
+    download-file-name: bmw.jpg
+    download-to: ./out/
 ```
 
 ## Inputs
