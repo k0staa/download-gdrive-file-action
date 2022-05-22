@@ -1,0 +1,15 @@
+name: Test Simple Download Google Drive file action
+on:
+  push:
+    branches:
+      - main
+jobs:
+  Test-Action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download file X from Google Drive
+        uses: k0staa/download-gdrive-file-action
+        with:
+          service-account-auth-json: ${{ secrets.SERVICE_ACCOUNT_AUTH_JSON }}
+          download-file-name: bmw.jpg
+          download-to: ./

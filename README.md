@@ -1,4 +1,4 @@
-# Simple Download Google Drive file
+# Simple Download Google Drive file action
 
 This action download file from Google Drive. It's simple and secure.
 
@@ -12,7 +12,7 @@ see [How to create a project, service account and generate authentication key se
   uses: k0staa/download-gdrive-file-action@v1
   with:
     service-account-auth-json: ${{ secrets.SERVICE_ACCOUNT_AUTH_JSON }}
-    download-file-name: /path/to/download
+    download-file-name: bmw.jpg
     download-to: ./
 ```
 
