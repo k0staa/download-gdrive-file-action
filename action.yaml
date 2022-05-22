@@ -1,8 +1,9 @@
-name: Simple Download Google Drive file
+name: Google Drive Simple Download
 description: Simple action for secure downloading file from Google Drive
 
 branding:
   icon: hard-drive
+  color: purple
 
 inputs:
   service-account-key-json:

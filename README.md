@@ -1,4 +1,4 @@
-# Simple Download Google Drive file action
+# Google Drive Simple Download action
 
 This action download file from Google Drive. It's simple and secure.
 
