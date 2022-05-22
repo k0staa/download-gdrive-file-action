@@ -5,6 +5,7 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-COPY download_file.py ./
+RUN mkdir /scripts
+COPY download_file.py /scripts/
 
-ENTRYPOINT ["python", "download_file.py"]
+ENTRYPOINT ["python", "/scripts/download_file.py"]
