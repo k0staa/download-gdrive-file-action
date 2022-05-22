@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download file bmw.jpg from Google Drive
-        uses: k0staa/download-gdrive-file-action@v1
+        uses: k0staa/download-gdrive-file-action@main
         with:
           service-account-auth-json: ${{ secrets.SERVICE_ACCOUNT_AUTH_JSON }}
           download-file-name: bmw.jpg
