@@ -11,6 +11,6 @@ jobs:
       - name: Download file bmw.jpg from Google Drive
         uses: k0staa/download-gdrive-file-action@main
         with:
-          service-account-auth-json: ${{ secrets.SERVICE_ACCOUNT_AUTH_JSON }}
+          service-account-key-json: ${{ secrets.SERVICE_ACCOUNT_AUTH_JSON }}
           download-file-name: bmw.jpg
           download-to: ./
