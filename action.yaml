@@ -1,0 +1,28 @@
+name: Simple Download Google Drive file
+description: Simple action for secure downloading file from Google Drive
+
+branding:
+  icon: hard-drive
+
+inputs:
+  service-account-key-json:
+    description: The credentials key for Google service account that have access to file which will be downloaded
+    required: true
+
+  download-file-name:
+    description: The name of the file to download
+    required: true
+
+  download-to:
+    description: The path where the downloaded file should be placed
+    required: false
+    default: ./
+
+
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    SERVICE_ACCOUNT_KEY_JSON: ${{ inputs.service-account-auth-json }}
+    DOWNLOAD_FILE_NAME: ${{ inputs.download-file-name }}
+    DOWNLOAD_TO: ${{ inputs.download-to }}

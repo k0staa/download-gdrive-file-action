@@ -1,0 +1,5 @@
+# created by virtualenv automatically
+venv
+.env
+*.json
+.idea
