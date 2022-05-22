@@ -1,5 +1,6 @@
 name: Test Google Drive Simple Download action
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
