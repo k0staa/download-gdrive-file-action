@@ -14,10 +14,6 @@ see [How to create a project, service account and generate authentication key se
     service-account-auth-json: ${{ secrets.SERVICE_ACCOUNT_AUTH_JSON }}
     download-file-name: /path/to/download
     download-to: ./
-
-    # For those who set up Google Drive API client ID and secret themselves
-    google-client-id: ${{ secrets.GOOGLE_CLIENT_ID }}
-    google-client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}
 ```
 
 ## Inputs
@@ -32,10 +28,11 @@ see [How to create a project, service account and generate authentication key se
 ## How to create a project, service account and generate authentication key
 
 1. Create a project in the [Google Cloud Platform Console](https://console.cloud.google.com/)
-2. Create a service account for this newproject
-3. Create authentication keys for this new service account and download it as `json`
-4. Enable [Google Drive API](https://developers.google.com/drive/api/v3/enable-drive-api) in new project
-5. Share the file that you want to download to the service account
+   . [See instructions](instructions/CREATE_PROJECT.md)
+2. Enable [Google Drive API](https://developers.google.com/drive/api/v3/enable-drive-api) in new project. [See instructions](instructions/ENABLE_API.md)
+3. Create a service account for new project. [See instructions](instructions/CREATE_SERVICE_ACCOUNT.md)
+4. Create authentication keys for the service account and download it as `json` file. [See instructions](instructions/CREATE_AUTH_KEY.md)
+5. Share the file that you want to download to the service account. [See instructions](instructions/SHARE_FILE.md)
 
 ## Contribution
 
