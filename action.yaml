@@ -24,6 +24,6 @@ runs:
   using: docker
   image: Dockerfile
   env:
-    SERVICE_ACCOUNT_KEY_JSON: ${{ inputs.service-account-auth-json }}
+    SERVICE_ACCOUNT_KEY_JSON: ${{ inputs.service-account-key-json }}
     DOWNLOAD_FILE_NAME: ${{ inputs.download-file-name }}
     DOWNLOAD_TO: ${{ inputs.download-to }}
