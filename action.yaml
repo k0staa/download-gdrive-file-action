@@ -19,7 +19,7 @@ inputs:
     required: false
     default: ./
     
-  media-type:
+  export-media-type:
     description: The media type, if exporting a Google Workspace document
     required: false
     default: null
@@ -32,3 +32,4 @@ runs:
     SERVICE_ACCOUNT_KEY_JSON: ${{ inputs.service-account-key-json }}
     DOWNLOAD_FILE_NAME: ${{ inputs.download-file-name }}
     DOWNLOAD_TO: ${{ inputs.download-to }}
+    EXPORT_MEDIA_TYPE: ${{ inputs.export-media-type }}
