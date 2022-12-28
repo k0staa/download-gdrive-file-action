@@ -1,0 +1,27 @@
+name: Test Google Drive Simple Download action with Google Docs
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  Test-Action-GDocs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download (exported) file Test_document from Google Drive to default folder (./)
+        uses: k0staa/download-gdrive-file-action@main
+        with:
+          service-account-key-json: ${{ secrets.SERVICE_ACCOUNT_AUTH_JSON }}
+          download-file-name: Test_document
+          export-media-type: text/plain
+      - name: ls current folder
+        run: ls ./ && cat ./Test_document.txt
+      - name: Download (exported) file Test_document from Google Drive to ./out/ folder
+        uses: k0staa/download-gdrive-file-action@main
+        with:
+          service-account-key-json: ${{ secrets.SERVICE_ACCOUNT_AUTH_JSON }}
+          download-file-name: Test_document
+          export-media-type: text/plain
+          download-to: ./out/
+      - name: ls ./out/ folder
+        run: ls ./out/ && cat ./out/Test_document.txt

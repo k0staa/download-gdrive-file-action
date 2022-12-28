@@ -22,7 +22,7 @@ inputs:
   export-media-type:
     description: The media type, if exporting a Google Workspace document
     required: false
-    default: null
+    default: ""
 
 
 runs:
