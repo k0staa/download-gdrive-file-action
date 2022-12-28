@@ -24,6 +24,15 @@ see [How to create a project, service account and generate authentication key se
     download-to: ./out/
 ```
 
+```yaml
+- name: Download exported Google Docs file X from Google Drive to default (./) directory
+  uses: k0staa/download-gdrive-file-action@v1
+  with:
+    service-account-auth-json: ${{ secrets.SERVICE_ACCOUNT_AUTH_JSON }}
+    download-file-name: Test_document
+    export-media-type: text/plain
+```
+
 ## Inputs
 
 - `service-account-key-json` **Required** The credentials key of the service account that is allowed to download file
